@@ -31,14 +31,14 @@ public class Student_Dao {
 		return pst.executeUpdate();
 	}
 
-	public static int saveAdmin(int id, String name, String email, String contact, String password)
+	public static int saveAdmin(int id, String name, String email, long contact, String password)
 			throws ClassNotFoundException, SQLException {
 		Connection con = getConnection();
 		PreparedStatement pst = con.prepareStatement("insert into admin values(?,?,?,?,?)");
 		pst.setInt(1, id);
 		pst.setString(2, name);
 		pst.setString(3, email);
-		pst.setString(4, contact);
+		pst.setLong(4, contact);
 		pst.setString(5, password);
 
 		return pst.executeUpdate();
