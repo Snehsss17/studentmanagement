@@ -48,6 +48,7 @@ table{
 	border : 2px solid orange;
 	background-color : orange;	
 	color: white;
+
 }
 #submit:hover{
 	border : 2px solid darkorange;
@@ -57,23 +58,27 @@ table{
 td{
 	 text-align: center;
     vertical-align: middle;
-    padding: 2px;
+    padding: 2px; 
 }
-#gologin{
 
-}
 
 </style>
 </head>
 <body>
 
-	<form action = "adminsignup" method = "post">
+	<form action = "adminsignup" method = "post" onsubmit="return validatepass(event)">
 	<h1>Admin SignUp</h1>
+	
+	<% String message = (String) request.getAttribute("message"); %>
+<% if (message != null) { %>
+    <p style="color:red; text-align:center; font-weight:bold;"><%= message %></p>
+<% } %>
+
 	<div class = "container">
 		<table>
 			<tr>
 				<td>Id : </td>
-				<td><input type ="text" name ="id" class="ipfields" placeholder = "Enter Id here" required></td>
+				<td><input type ="number" name ="id" class="ipfields" placeholder = "Enter Id here" required></td>
 			</tr>
 			<tr>
 				<td>Name : </td>
@@ -81,7 +86,7 @@ td{
 			</tr>
 			<tr>
 				<td>Contact : </td>
-				<td><input type ="text" name ="contact" class="ipfields" placeholder = "Enter Contact here" required></td>
+				<td><input type ="tel" name ="contact" class="ipfields" placeholder = "Enter Contact here" required></td>
 			</tr>
 			<tr>
 				<td>Email : </td>
@@ -89,24 +94,43 @@ td{
 			</tr>
 			<tr>
 				<td>Password : </td>
-				<td><input type ="password" name ="password" class="ipfields" placeholder = "Enter Password here" required></td>
+				<td><input type ="password" name ="password" id = "password" class="ipfields" placeholder = "Enter Password here" required></td>
 			</tr>
 			<tr>
 				<td>Re-Enter Password : </td>
-				<td><input type ="password" name ="repassword" class="ipfields" placeholder = "Re-Enter Password here" required></td>
+				<td><input type ="password" name ="repassword"  id = "repassword" class="ipfields" placeholder = "Re-Enter Password here" required></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><p id ="errormsg"></p></td>		
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><button type="submit" id ="submit">Submit</button></td>		
-			</tr>
-					
+			</tr>		
 		</table>
 		</div>
 	</form>
 	
-	<% String message = (String) request.getAttribute("message");%>
-	<% if(message != null){ %>
-	<script>alert("<%= message %>")</script>
-	<% } %>
+	<script>
+		function validatepass(event) {
+			var password = document.getElementById("password").value;
+			var repassword = document.getElementById("repassword").value;
+			var errormsg = document.getElementById("errormsg");
+
+			if (password !== repassword) {
+				errormsg.textContent = "Passwords do not match!";
+				errormsg.style.display = "block";
+				  errormsg.style.color = "red";
+				event.preventDefault(); 
+				return false;
+			}
+			else {
+				errormsg.style.display = "none";
+				return true;
+			}
+		}
+	</script>
+
 	
+
 </body>
 </html>

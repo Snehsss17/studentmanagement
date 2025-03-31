@@ -1,8 +1,6 @@
 package Servlets;
-
 import java.io.IOException;
 import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,21 +21,28 @@ public class Signup extends HttpServlet{
 		String password = req.getParameter("password");
 		String repassword = req.getParameter("repassword");
 		
+		if (!password.equals(repassword)) {
+            req.setAttribute("message", "Passwords do not match!");
+            req.getRequestDispatcher("adminsignup.jsp").forward(req, resp);
+            return;
+        }
+		
 			try {
 				int value = Student_Dao.saveAdmin(id, name, email, contact, password);
-				if(value == 1 && password.equals(repassword)) {
-					req.setAttribute("message", "Signin Success!");
-					req.getRequestDispatcher("adminsignup.jsp").include(req, resp);
+				if(value == 1) {
+					  resp.sendRedirect("adminlogin.jsp");
 				}
 				else {
-					req.setAttribute("message", "Invalid Credentials!");
+					req.setAttribute("message", "Sign up  Failed,Try again!");
 					req.getRequestDispatcher("adminsignup.jsp").include(req, resp);
 				}
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+			} catch (NumberFormatException e) {
+	            req.setAttribute("message", "Invalid input format! Please enter valid details.");
+	            req.getRequestDispatcher("adminsignup.jsp").forward(req, resp);
+	        } catch (ClassNotFoundException | SQLException e) {
+	            req.setAttribute("message", "Database error! Please try again later.");
+	            req.getRequestDispatcher("adminsignup.jsp").forward(req, resp);
+	        }
 	
 	}
 }
