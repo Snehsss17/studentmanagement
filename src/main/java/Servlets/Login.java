@@ -21,20 +21,26 @@ public class Login extends HttpServlet{
 		Student_Dao s = new Student_Dao();
 		
 		
+		
+		boolean res =  false;
 		try {
-			boolean res = s.findAdmin(email, password);
+			res = s.findAdmin(email, password);
 			if(res) {
 				req.setAttribute("message","Login Success!");
 				req.getRequestDispatcher("adminhome.jsp").forward(req, resp);
 			}else {
-				req.setAttribute("message","Invalid Username or Password!");
+				req.setAttribute("message","Login Failure! Please check the fields!");
 				req.getRequestDispatcher("adminlogin.jsp").forward(req, resp);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
-
 }
+	
+
+
+
 

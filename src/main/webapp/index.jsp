@@ -21,15 +21,12 @@ h1{
 	margin-top : 6%;	
 	border-radius : 28px;
 	box-shadow : 2px 2px 90px 2px gold;
-	background-color : peach;
-	
-	
-	
+	background-color : peach;	
 }
 a{
 	text-decoration : none;
 	border : 2px solid orange;
-	margin-top : 60px;
+	margin-top : 60px; 
 	margin-left : 180px;
 	position : absolute;
 	background-color : orange;	
@@ -50,6 +47,7 @@ a:hover{
 	background-color : red;	
 	color: white;
 }
+
 
 
 </style>

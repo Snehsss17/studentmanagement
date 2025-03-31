@@ -76,15 +76,24 @@ public class Student_Dao {
 		return pst.executeUpdate();
 	}
 	
-	public static List<Student_Dto> findAllStudent() throws ClassNotFoundException, SQLException{
-		Connection con = getConnection();
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("select * from student");
+	public static List<Student_Dto> findAllStudent(){
+		Connection con;
 		List<Student_Dto> list = new ArrayList();
-		while(rs.next()) {
-			Student_Dto s = new Student_Dto(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
-			list.add(s);
+		try {
+			con = getConnection();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery("select * from student");
+			
+			while(rs.next()) {
+				Student_Dto s = new Student_Dto(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
+				list.add(s);
+			}
+		
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return list;
+		
 	}
 }
