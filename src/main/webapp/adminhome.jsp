@@ -102,7 +102,7 @@ th,td{
 					<td><%=s.getChemistry()%></td>
 					<td><%=s.getMaths()%></td>
 					<td><a href="editstudent.jsp?id=<%=s.getId()%>&name=<%=s.getName()%>&physics=<%=s.getPhysics()%>&chemistry=<%=s.getChemistry()%>&maths=<%=s.getMaths()%>">edit</a></td>
-				<td><a href="deletestudent?id=<%=s.getId()%>" style="color: red;">delete</a></td>
+				<td><a href="deletestudent.jsp?id=<%=s.getId()%>" style="color: red;">delete</a></td>
 				</tr>
 			<%}	%>
 			
