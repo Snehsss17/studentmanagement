@@ -5,66 +5,83 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add Student</title>
 
 <style>
 body {
-	background-color: #FFEFD5;
-	font-size: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 100vh;
+    background: linear-gradient(to right, #FFDAB9, #FFA07A);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    margin : 0;
+}
+
+
+h1 {
+	text-align: center;
+	padding-bottom: 30px;
+	color: #333;
 }
 
 .container {
-	border: 1px solid black;
-	height: 480px;
-	width: 780px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-contents: center;
-	margin-top: 10px;
+    border: 2px solid gold;
+    background-color: #FFE4B5;
+    border-radius: 15px;
+    box-shadow: 2px 2px 20px rgba(218,165,32,0.7); 
+    height: 450px;
+    width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 20px;
 }
 
+
 table {
-	border-spacing: 25px;
-	align-items: center;
-	flex-direction: column;
-	justify-contents: center;
+    border-spacing: 15px;
 }
 
 .ipfields {
-	height: 30px;
-	width: 205px;
-	font-size: 16px;
-	font-style: italic;
-	font-family: Arial, sans-serif;
+    height: 35px;
+    width: 250px;
+    font-size: 16px;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+    border: 1px solid gray;
+    padding-left: 10px;
 }
 
 #submit {
-	height: 50px;
-	width: 100px;
-	font-size: 18px;
-	border-radius: 18px;
-	border-style: solid;
-	border: 2px solid olive;
-	background-color: olive;
-	color: white;
+    height: 45px;
+    width: 120px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 2px solid olive;
+    background-color: olive;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 #submit:hover {
-	border: 2px solid gray;
-	background-color: gray;
-	color: black;
+    border: 2px solid gray;
+    background-color: gray;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px gray;
 }
 
 td {
-	text-align: center;
-	vertical-align: middle;
-	padding: 2px;
+    text-align: center;
+    padding: 5px;
 }
+
 </style>
 </head>
 <body>

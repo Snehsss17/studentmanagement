@@ -7,32 +7,39 @@
 <title>Admin Login</title>
 <style>
 body {
-	background-color: #FFEFD5;
+	background: linear-gradient(to right, #FFDAB9, #FFA07A);
+	font-family: Arial, sans-serif;
 	font-size: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	height: 100vh;
+	margin : 0;
 }
 
 h1 {
 	text-align: center;
 	padding-bottom: 30px;
+	color: #333;
 }
 
 .container {
-	border: 1px solid black;
-	width: 650px;
+	border: 2px solid gold;
+	width: 480px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	box-sizing: border-box;
 	position: relative;
+	border-radius: 15px;
+	box-shadow: 2px 2px 20px rgba(218,165,32,0.7);
+	background-color: #FFE4B5;
+	padding: 20px;
 }
 
 table {
-	border-spacing: 15px; /* Adds space between table cells */
+	border-spacing: 15px; 
 	margin: 0 auto;
 }
 
@@ -43,36 +50,41 @@ td {
 }
 
 .ipfields {
-	height: 30px;
-	width: 205px;
+	height: 35px;
+	width: 220px;
 	font-size: 16px;
 	font-style: italic;
 	font-family: Arial, sans-serif;
+	border-radius: 10px;
+	border: 1px solid gray;
+	padding-left: 10px;
 }
 
 #submit {
 	height: 50px;
-	width: 100px;
+	width: 100%;
 	font-size: 18px;
 	border-radius: 18px;
 	border: 2px solid orange;
 	background-color: orange;
 	color: black;
 	margin-top: 10px;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 #submit:hover {
 	border: 2px solid red;
 	background-color: red;
 	color: white;
+	transform: scale(1.1);
+	box-shadow: 0px 0px 10px red;
 }
 
 .suphere {
 	padding-top: 15px;
-	text-align: center; /* Center text */
+	text-align: center;
 	width: 100%;
-	/* position: absolute;*/
-	bottom: 10px; /* Keep it inside the container */
 }
 
 #sup {
@@ -82,12 +94,15 @@ td {
 	border: 2px solid green;
 	background-color: green;
 	color: white;
+	transition: 0.3s;
 }
 
 #sup:hover {
 	border: 2px solid darkgreen;
 	background-color: darkgreen;
 	color: white;
+	transform: scale(1.1);
+	box-shadow: 0px 0px 10px darkgreen;
 }
 
 #error {
@@ -100,19 +115,19 @@ td {
 }
 
 .message {
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 10px;
-    }
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
 
-    .error {
-        color: red;
-    }
+.error {
+	color: red;
+}
 
-    .success {
-        color: green;
-    }
+.success {
+	color: green;
+}
 </style>
 </head>
 <body>
@@ -153,7 +168,7 @@ td {
 				</tr>
 				<tr>
 
-					<td colspan="2" align="center"><input type="submit"
+					<td colspan = "2" align="center"><input type="submit"
 						id="submit"></td>
 				</tr>
 
@@ -202,19 +217,7 @@ td {
 			});
 		});
 		
-		document.addEventListener("DOMContentLoaded", function () {
-	        var message = document.getElementById("message");
-	        var msgtext = message.textContent;
-
-		            if (msgtext.includes("Login Success!")) {
-	                message.classList.add("success");
-					window.location.href = "adminhome.jsp";
-	            	} else {
-	                message.classList.add("error");
-	            }
-	        
-	    });
-	
+			
 	</script>
 
 </body>

@@ -8,67 +8,92 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home Page - Admin</title>
 <style>
 
 body {
-	background-color: #FFEFD5;
-	font-size: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 100vh;
+    background: linear-gradient(to right, #FFDAB9, #FFA07A);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    margin : 0;
 }
-table{
-	border: 1px solid black;
-	border-collapse: collapse;
-	
-	width: 700px;
-}
-th,td{
-	border: 1px solid black;
-	border-collapse: collapse;
+
+h1 {
 	text-align: center;
+	padding-bottom: 30px;
+	color: #333;
 }
 
-.buttons{
-	
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	position: absolute;
-	justify-content: space-between;
-	margin-top : 500px;
-	width: 700px;
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 750px;
+    background-color: white;
+    margin: auto; 
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-#add{
-	text-decoration: none;
-	padding: 10px;
-	border-radius: 18px;
-	border: 2px solid green;
-	background-color: green;
-	color: white;
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #ffcc99;
+}
+
+td a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 750px; 
+    margin-top: 20px;
+}
+
+#add, #lout {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+    text-align: center;
+}
+
+#add {
+    background-color: green;
+    border: 2px solid green;
 }
 
 #add:hover {
-	border: 2px solid darkgreen;
-	background-color: darkgreen;
-	color: white;
+    background-color: darkgreen;
+    border-color: darkgreen;
 }
-#lout{
-	text-decoration: none;
-	padding: 10px;
-	border-radius: 18px;
-	border: 2px solid red;
-	background-color: red;
-	color: white;
+
+#lout {
+    background-color: red;
+    border: 2px solid red;
 }
+
 #lout:hover {
-	border: 2px solid darkred;
-	background-color: darkred;
-	color: white;
+    background-color: darkred;
+    border-color: darkred;
 }
+
 </style>
 
 
@@ -101,7 +126,8 @@ th,td{
 					<td><%=s.getPhysics()%></td>
 					<td><%=s.getChemistry()%></td>
 					<td><%=s.getMaths()%></td>
-					<td><a href="editstudent.jsp?id=<%=s.getId()%>&name=<%=s.getName()%>&physics=<%=s.getPhysics()%>&chemistry=<%=s.getChemistry()%>&maths=<%=s.getMaths()%>">edit</a></td>
+					<td><a href="editstudent.jsp?id=<%=s.getId()%>&name=<%=s.getName()%>&physics=<%=s.getPhysics()%>
+					&chemistry=<%=s.getChemistry()%>&maths=<%=s.getMaths()%>">edit</a></td>
 				<td><a href="deletestudent.jsp?id=<%=s.getId()%>" style="color: red;">delete</a></td>
 				</tr>
 			<%}	%>
